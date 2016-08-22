@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class='col-sm-6 col-sm-offset-6'>
+        <p class='text-align-center lead'>您已成功退出当前账户！</p>
+        <p class='text-align-center lead'>
+            <a href="{% url 'auth_login' %}">登录</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

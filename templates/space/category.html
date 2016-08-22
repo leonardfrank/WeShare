@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    WeShare | {{ category_name }}
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>{{ category_name }}</h1>
+    <b id="like_count">{{ category.likes }}</b> 人喜欢该目录
+    {% if user.is_authenticated %}
+        <button type="button" id ="likes" data-catid="{{category.id}}" class="btn btn-primary">
+           Like
+        </button>
+    {% endif %}
+</div>
+
+<div class="panel panel-primary">
+    <br/>
+    {% if category %}
+        {% if pages %}
+        <ul>
+            {% for page in pages %}
+                <li><a href="{% url 'goto'%}?page_id={{ page.id }}">{{ page.title }}</a></li>
+                <b>浏览次数：{{ page.views }} </b>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <ul><b style="font-size: x-large">当前该目录没有文章</b></ul>
+
+        {% endif %}
+
+        {% if user.is_authenticated %}
+        <ul>
+
+            <a href="{% url 'add_page' category.slug %}">
+                <button type="button" class="btn btn-primary" style="font-size: large">添加文章</button>
+            </a>
+
+        </ul>
+        {% endif %}
+
+    {% else %}
+        {{ category_name }}目录不存在!
+    {% endif %}
+ </div>
+{% endblock %}
+
+{% block sidebar %}
+   {% load list_categories%}
+   {% get_category_list category%}
+{% endblock %}
+

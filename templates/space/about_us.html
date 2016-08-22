@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12 col-md-offset-2 jumbotron ">
+        <p class='text-align-center lead'>
+        我有一个苹果,你有一个苹果,交换以后,我们还是只有一个苹果.
+        </p>
+    </div>
+</div>
+    <div class="row">
+    <div class="col-md-12 col-sm-offset-2 jumbotron ">
+        <p class='text-align-center lead'>
+        我有一种思想,你有一种思想,分享以后,我们都有两种思想.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-sm-offset-2 jumbotron ">
+        <p class='text-align-center lead'>
+        我有一份快乐,你有一份快乐,分享以后,我们就有无数份快乐.
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 col-sm-offset-2 jumbotron ">
+        <p class='text-align-center lead'>
+        WeShare定位为书签分享网站，用户可以分享自己的书签和大家共享快乐！
+        </p>
+        只有注册成为我们的一员才能分享哦！
+        <a href="{% url 'registration_register' %}">前去注册</a>
+    </div>
+</div>
+
+{% endblock %}

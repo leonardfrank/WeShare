@@ -1,0 +1,17 @@
+{% load staticfiles %}
+
+{% if categories %}
+    <div class="list-group">
+     <ul class="nav nav-sidebar">
+    {% for category in categories %}
+        {% if category == current_category %}
+            <a href="{% url 'category' category.slug %}" class="list-group-item active">{{ category.name }}</a>
+        {% else %}
+            <a href="{% url 'category' category.slug %}" class="list-group-item ">{{ category.name}}</a>
+        {% endif %}
+    {% endfor %}
+     </ul>
+    </div>
+{% endif %}
+
+

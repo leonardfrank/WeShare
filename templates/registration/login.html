@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class='row'>
+	<div class='col-sm-6 col-sm-offset-5'>
+		<h1 align="center">登录</h1>
+		<form method="post" action=".">
+		  {% csrf_token %}
+		  {{ form|crispy }}
+
+		  <input class='btn btn-block btn-primary' type="submit" value="登录" />
+		  <input type="hidden" name="next" value="{{ next }}" />
+		</form>
+	</div>
+</div>
+<hr/>
+
+<div class='row'>
+	<div class='col-sm-6 col-sm-offset-5 text-align-center'>
+        <p>还未注册?赶快去 <a href="{% url 'registration_register' %}">注册</a>吧!</p>
+	</div>
+</div>
+
+{% endblock %}

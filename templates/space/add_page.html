@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    MySpace | 添加文章
+{% endblock %}
+
+{% block content %}
+<div class='row'>
+    {% if category %}
+	<div class='col-sm-6 col-sm-offset-3'>
+		<form method='POST' action='{% url 'add_page'  category.slug %}'>
+            <h2 class="form-signin-heading">
+                添加文章
+            </h2>
+            {% csrf_token %}
+                {{ form|crispy }}
+			<input class='btn btn-default' type='submit' value='添加' />
+		</form>
+	</div>
+    {% else %}
+        <div class="col-sm-6 col-sm-offset-5 jumbotron">
+            <h3>该目录不存在</h3>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block sidebar %}
+   {% load list_categories%}
+   {% get_category_list %}
+{% endblock %}
